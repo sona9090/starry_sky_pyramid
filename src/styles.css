@@ -1,0 +1,143 @@
+:root {
+  --transparent: rgba(255, 255, 255, 0);
+  --waterSpark: rgba(141, 149, 223, 0.3);
+  --waterBackground: linear-gradient(
+      to left bottom,
+      var(--waterSpark),
+      var(--transparent),
+      var(--waterSpark),
+      var(--transparent),
+      var(--waterSpark),
+      var(--transparent),
+      var(--waterSpark),
+      var(--transparent),
+      var(--waterSpark),
+      var(--transparent),
+      var(--waterSpark),
+      var(--transparent),
+      var(--waterSpark),
+      var(--transparent),
+      var(--waterSpark),
+      var(--transparent),
+      var(--waterSpark),
+      var(--transparent),
+      var(--waterSpark),
+      var(--transparent),
+      var(--waterSpark),
+      var(--transparent)
+    ),
+    linear-gradient(
+      to right bottom,
+      var(--waterSpark),
+      var(--transparent),
+      var(--waterSpark),
+      var(--waterSpark),
+      var(--transparent),
+      var(--waterSpark),
+      var(--transparent),
+      var(--waterSpark),
+      var(--transparent),
+      var(--waterSpark),
+      var(--transparent),
+      var(--waterSpark),
+      var(--transparent),
+      var(--waterSpark),
+      var(--transparent),
+      var(--waterSpark),
+      var(--transparent)
+    );
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, indigo 40%, darkblue, black) no-repeat
+    center center/100% 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+#stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+}
+
+#mountain {
+  width: 50vw;
+  height: 50vw;
+  background: linear-gradient(
+      to right top,
+      var(--transparent) 48%,
+      rgba(255, 255, 255, 0.2) 50%,
+      var(--transparent) 52%
+    ),
+    linear-gradient(-135deg, rgb(114, 114, 44, 0.2) 50%, var(--transparent) 50%),
+    linear-gradient(
+      to right bottom,
+      rgb(75, 36, 2) 50%,
+      rgba(75, 36, 2, 0.5) 50%
+    ),
+    linear-gradient(var(--transparent), black, var(--transparent));
+  z-index: 2;
+  position: relative;
+  transform: rotate(45deg);
+  top: 0%;
+  overflow: hidden;
+  box-shadow: -25px -25px 100px rgb(233, 233, 162),
+    inset 0 0 50px rgb(235, 190, 235);
+  border: thin solid rgba(255, 255, 255, 0.8);
+}
+
+.star {
+  width: 2px;
+  height: 1px;
+  background: white;
+  box-shadow: 0 0 10px white, 0 0 10px white, 0 0 10px white;
+  z-index: 1;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  transition: all 2s;
+}
+
+#fog {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  height: calc(50vw * 0.485);
+  position: absolute;
+  z-index: 2;
+  background: linear-gradient(
+    to top,
+    black,
+    rgba(12, 91, 110, 0.8) 65%,
+    var(--transparent)
+  );
+  bottom: 0;
+  left: 0;
+  box-shadow: inset 0 10px 20px -15px white;
+}
+
+#fog::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: var(--waterBackground);
+  filter: blur(3px);
+  opacity: 0.2;
+}
